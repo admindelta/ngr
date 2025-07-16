@@ -43,7 +43,9 @@
                             <a class="nav-link" href="Lapwa.html">Laporan WA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Keberangkatan</a>
+                            <a class="nav-link" href="keberangkatan.html"
+                                >Keberangkatan</a
+                            >
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" aria-disabled="true"
@@ -60,10 +62,11 @@
         <div class="container-fluid">
             <p class="fs-6"><b>Laporan WA pengawasan NTL</b></p>
 
-            <div class="col-md-6" style="display:none;">
+            <div class="col-md-6" style="display: none">
                 <label for="tanggal" class="form-label">Tanggal Hari Ini</label>
                 <input type="text" class="form-control" id="inputTanggal" />
-            </div><br>
+            </div>
+            <br />
             <div class="col-md-4">
                 <label for="jafwalShift" class="form-label">Jadwal Shift</label>
                 <select id="jadwalShift" class="form-select">
@@ -74,19 +77,21 @@
                     <option>Malam ke-1 : 22.00 s/d 06.00</option>
                     <option>Malam ke-2 : 22.00 s/d 06.00</option>
                 </select>
-            </div><br>
+            </div>
+            <br />
             <div class="col-md-6">
                 <label for="nama" class="form-label">Nama Orang Asing</label>
                 <input type="text" class="form-control" id="nama" />
-            </div><br>
+            </div>
+            <br />
             <div class="col-md-4">
                 <label for="jk" class="form-label">Jenis Kelamin</label>
                 <select id="jk" class="form-select">
                     <option selected>(Lk)</option>
                     <option>(Pr)</option>
-                    
                 </select>
-            </div><br>
+            </div>
+            <br />
             <div class="col-md-6">
                 <label for="nama" class="form-label">Warga Negara</label>
                 <input type="text" class="form-control" id="WN" />
@@ -131,6 +136,18 @@
                 >
                 <input type="text" class="form-control" id="polsus" />
             </div>
+            <div class="col-md-6">
+                <label for="pomsus" class="form-label"
+                    >Tanggal Pesawat Sebelumnya</label
+                >
+                <input type="text" class="form-control" id="tglex" />
+            </div>
+            <div class="col-md-6">
+                <label for="pomsus" class="form-label"
+                    >Kode Pesawat Sebelumnya</label
+                >
+                <input type="text" class="form-control" id="kodeex" />
+            </div>
 
             <br />
             <div class="col-12">
@@ -152,9 +169,7 @@
                     placeholder="Leave a comment here"
                     id="floatingTextarea2"
                     style="height: 600px"
-                >
-</textarea
-                >
+                ></textarea>
             </div>
             <br />
             <center>
@@ -202,22 +217,30 @@
                 textTanggal.value = indonesianFormat;
             }
             function proses() {
-            let selectedDate = new Date();
-              const tglz = selectedDate.getDate();
-              const bulanz =selectedDate.getMonth()+1;
-              console.log(bulanz)
-              const tahunz = selectedDate.getFullYear();
-              const tgl = `${tglz}` +"-"+ `${bulanz}`+"-"+tahunz
+                let selectedDate = new Date();
+                const tglz = selectedDate.getDate();
+                const bulanz = selectedDate.getMonth() + 1;
+                console.log(bulanz);
+                const tahunz = selectedDate.getFullYear();
+                const tgl = `${tglz}` + "-" + `${bulanz}` + "-" + tahunz;
                 const textTanggal =
                     document.getElementById("inputTanggal").value;
-                    
+
                 const jadwal = document.getElementById("jadwalShift").value;
                 const nama = document.getElementById("nama").value;
                 const jk = document.getElementById("jk").value;
-                const WN = document.getElementById("WN").value;const paspor = document.getElementById("paspor").value;const kodePesawat = document.getElementById("kodePesawat").value;const tujuan = document.getElementById("tujuan").value;const pesawat = document.getElementById("pesawat").value;
-                const waktuBoarding = document.getElementById("waktuBoarding").value;
+                const WN = document.getElementById("WN").value;
+                const paspor = document.getElementById("paspor").value;
+                const kodePesawat =
+                    document.getElementById("kodePesawat").value;
+                const tujuan = document.getElementById("tujuan").value;
+                const pesawat = document.getElementById("pesawat").value;
+                const waktuBoarding =
+                    document.getElementById("waktuBoarding").value;
                 const polsus = document.getElementById("polsus").value;
                 const avsec = document.getElementById("avsec").value;
+                const tglex = document.getElementById("tglex").value;
+                const kodeex = document.getElementById("kodeex").value;
                 //console.log(jadwal);
                 const isiText = document.getElementById("floatingTextarea2");
                 isiText.value =
@@ -225,7 +248,33 @@
                     textTanggal +
                     " \n \nJadwal " +
                     jadwal +
-                    " WITA\nYg Bertugas : Riksa IV\n\nDengan hormat kami sampaikan laporan pemulangan 1 (Satu) orang penumpang dengan data sebagai berikut : \n\n1.  Nama  : "+nama+" "+jk+"\n     WN       : "+WN+" \n     TD No. : "+paspor+"\n     Ex         : "+kodePesawat+" / "+tgl+"\n     Alasan : NTL / Immigration Reason\n\nYbs diterbangkan ke "+tujuan+" dengan menggunakan maskapai "+pesawat+" ("+kodePesawat+") tanggal "+tgl+" Jadwal boarding berangkat jam "+waktuBoarding+" WITA\n\nAvsec Airlines   : "+avsec+"\nPolsus Imigrasi : "+polsus+"\n\nDemikian disampaikan terima kasih.\n\nKasi Riksa IV\n\Ardyansyah";
+                    " WITA\nYg Bertugas : Riksa IV\n\nDengan hormat kami sampaikan laporan pemulangan 1 (Satu) orang penumpang dengan data sebagai berikut : \n\n1.  Nama  : " +
+                    nama +
+                    " " +
+                    jk +
+                    "\n     WN       : " +
+                    WN +
+                    " \n     TD No. : " +
+                    paspor +
+                    "\n     Ex         : " +
+                    kodeex +
+                    " / " +
+                    tglex +
+                    "\n     Alasan : NTL / Immigration Reason\n\nYbs diterbangkan ke " +
+                    tujuan +
+                    " dengan menggunakan maskapai " +
+                    pesawat +
+                    " (" +
+                    kodePesawat +
+                    ") tanggal " +
+                    tgl +
+                    " Jadwal boarding berangkat jam " +
+                    waktuBoarding +
+                    " WITA\n\nAvsec Airlines   : " +
+                    avsec +
+                    "\nPolsus Imigrasi : " +
+                    polsus +
+                    "\n\nDemikian disampaikan terima kasih.\n\nKasi Riksa IV\n\Ardyansyah";
             }
         </script>
     </body>
